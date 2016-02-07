@@ -10,12 +10,13 @@ namespace CavemanTools.Persistence
     {
         public static string DefaultTableName = "IdempotencyStore";
         public static string DefaultSchema = "";
+        class IdemStore
+        {
+            public string Hash { get; set; }
+        }
         public class StoreCreator : ICreateStorage
         {
-            class IdemStore
-            {
-                public string Hash { get; set; }
-            }
+          
             private readonly IDbFactory _db;
 
             public StoreCreator(IDbFactory db)
@@ -23,27 +24,30 @@ namespace CavemanTools.Persistence
                 _db = db;
             }
 
-            public void Create()
+            public void CreateAndIfExists(Just ifExists)
             {
                 _db.Do(db =>
                 {
                     db.CreateTableFrom<IdemStore>(t =>
                     {
-                        t.TableName(DefaultTableName,DefaultSchema)
+                        t.TableName(DefaultTableName, DefaultSchema)
                             .Column(ta => ta.Hash, c => c.HasDbType("char").HasSize(32))
                             .PrimaryKey(pk => pk.OnColumns(d => d.Hash))
-                            .IfTableExists(Just.Ignore);
+                            .IfTableExists(ifExists);
                     });
 
                 });
             }
+
+            public void Create()
+                => CreateAndIfExists(Just.Ignore);
         }
         public static bool IsDuplicateOperation(this DbConnection db, IdempotencyId data)
         {
             data.MustNotBeNull();
             try
             {
-                db.Insert(data);
+                db.Insert(new IdemStore() {Hash = data.GetStorableHash()});
             }
             catch (DbException ex)
             {

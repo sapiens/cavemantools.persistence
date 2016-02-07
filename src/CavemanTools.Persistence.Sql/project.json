@@ -1,6 +1,6 @@
 ﻿{
   "version": "1.0.0-pre",
-  "description": "CavemanTools.Persistence Class Library",
+  "description": "Sql persistence for idempotency and uniques storages",
   "authors": [ "t" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -8,7 +8,7 @@
 
     "dependencies": {
         "CavemanTools": "4.0.0-pre-7",
-        "SqlFu": "3.0.0-beta0-*"
+        "SqlFu": "3.0.0-beta0-3" 
     },
 
   "frameworks": {
