@@ -15,7 +15,7 @@ namespace Tests
 
         public IdempotencyTests()
         {
-            new IdempotencyTools.StoreCreator(SqlFuManager.GetDbFactory()).CreateAndIfExists(Just.DropIt);
+          
         }
 
         [Fact]

@@ -37,7 +37,7 @@
           "lib/net45/FluentAssertions.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -142,7 +142,7 @@
           "lib/dotnet5.4/Microsoft.CSharp.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -632,7 +632,7 @@
           "lib/net45/FluentAssertions.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -687,7 +687,7 @@
           "lib/net45/FluentAssertions.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -889,7 +889,7 @@
           "runtimes/win7-x86/native/clrcompression.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -1526,7 +1526,7 @@
           "runtimes/win7-x64/native/clrcompression.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-3": {
+      "SqlFu/3.0.0-beta0-5": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -2265,16 +2265,16 @@
         "runtimes/win7-x86/native/clrcompression.dll"
       ]
     },
-    "SqlFu/3.0.0-beta0-3": {
+    "SqlFu/3.0.0-beta0-5": {
       "type": "package",
-      "sha512": "BiYjButGGgYEB6G5MgDstyJOMI13pV4tr8pj0afameyOlEu8KM2Ruttw1q7WHSsQdawNslG89bmmzbnpykYLaw==",
+      "sha512": "EPfHYFV6VvWQE9ltpaYU6EPLfO8HpATGpKVQJ3nyQeaDAzjiBXsY39IxJ3PvcpPSRdyQiA4b1l9seeVRUgcK6w==",
       "files": [
         "lib/dotnet5.4/SqlFu.dll",
         "lib/dotnet5.4/SqlFu.xml",
         "lib/net46/SqlFu.dll",
         "lib/net46/SqlFu.xml",
-        "SqlFu.3.0.0-beta0-3.nupkg",
-        "SqlFu.3.0.0-beta0-3.nupkg.sha512",
+        "SqlFu.3.0.0-beta0-5.nupkg",
+        "SqlFu.3.0.0-beta0-5.nupkg.sha512",
         "SqlFu.nuspec"
       ]
     },
@@ -3727,7 +3727,7 @@
   "projectFileDependencyGroups": {
     "": [
       "CavemanTools >= 4.0.0-pre-7",
-      "SqlFu >= 3.0.0-beta0-3"
+      "SqlFu >= 3.0.0-beta0-5"
     ],
     ".NETFramework,Version=v4.6": [],
     ".NETPlatform,Version=v5.4": [

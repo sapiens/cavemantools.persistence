@@ -3,17 +3,26 @@ using System.Data.Common;
 using System.Linq;
 using CavemanTools.Model.Persistence.UniqueStore;
 using SqlFu;
-using SqlFu.Builders.CreateTable;
+using SqlFu.Builders;
 
 namespace CavemanTools.Persistence.UniqueStore
 {
-    public class GenericUniqueStore<TDbFactory>:IStoreUniqueValues where TDbFactory:IDbFactory
+    public class UniqueStore:IStoreUniqueValues
     {
-        private readonly TDbFactory _db;
+        private readonly IDbFactory _db;
         public const string Table = "UniqueStore";
-      
-      
-        public GenericUniqueStore(TDbFactory db)
+
+       
+        /// <summary>
+        /// Creates an instance of <see cref="UniqueStore"/>. This method should be registered in the DI Container
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="factory"></param>
+        /// <returns></returns>
+        public static IStoreUniqueValues GetInstance<T>(T factory) where T : IDbFactory
+        => new UniqueStore(factory);
+
+        protected UniqueStore(IDbFactory db)
         {
             _db = db;
         }
@@ -90,57 +99,13 @@ namespace CavemanTools.Persistence.UniqueStore
                 }
             }
         });
+
+        /// <summary>
+        /// Creates the table used for tracking uniques
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="factory"></param>
+        public static void InitStorage<T>(T factory, TableExistsAction ifExists = TableExistsAction.Ignore) where T : IDbFactory
+            => new UniqueStorageCreator(factory).IfExists(ifExists).Create();
     }
-
-    public class UniqueStoreRow
-    {
-        public Guid EntityId { get; set; }
-        public string Scope { get; set; }
-        public string Aspect { get; set; }
-        public string Value { get; set; }
-        public string Bucket { get; set; }
-
-        private UniqueStoreRow()
-        {
-            
-        }
-
-     
-        public UniqueStoreRow(Guid entityId, string scope, string aspect, string value, string bucket)
-        {
-            EntityId = entityId;
-            Scope = Pack(scope);
-            Aspect = Pack(aspect);
-            Value = Pack(value);
-            Bucket = Pack(bucket);
-        }
-
-        public static string Pack(string value) => value?.ToUpper().MurmurHash().ToBase64();        
-    }
-
-    public class UniqueStoreCreator<TDbFactory> : ATypedStorageCreator<UniqueStoreRow> where TDbFactory:IDbFactory
-    {
-        public static string DefaultTableName = "uniques";
-        public static string DefaultSchema = "";
-
-        public UniqueStoreCreator(TDbFactory db) : base(db)
-        {
-        }
-
-        protected override void Configure(IConfigureTable<UniqueStoreRow> cfg)
-        {
-            cfg
-                .TableName(DefaultTableName,DefaultSchema)
-                .Column(d => d.Scope, c => c.HasDbType("char").HasSize(32).NotNull())
-                .Column(d => d.Aspect, c => c.HasDbType("char").HasSize(32).NotNull())
-                .Column(d => d.Value, c => c.HasDbType("char").HasSize(32).NotNull())
-                .Column(d => d.Bucket, c => c.HasDbType("char").HasSize(32).NotNull())
-                .Index(i => i.OnColumns(c=>c.Bucket,c => c.Scope,c=>c.Aspect,c=>c.Value).Unique())
-                .Index(d=>d.OnColumns(c=>c.EntityId));
-        }
-    }
-
-  
-
-
 }

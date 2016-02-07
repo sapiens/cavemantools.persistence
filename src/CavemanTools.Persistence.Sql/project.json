@@ -8,7 +8,7 @@
 
     "dependencies": {
         "CavemanTools": "4.0.0-pre-7",
-        "SqlFu": "3.0.0-beta0-3" 
+        "SqlFu": "3.0.0-beta0-5" 
     },
 
   "frameworks": {

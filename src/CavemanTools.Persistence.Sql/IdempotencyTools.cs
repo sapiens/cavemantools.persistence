@@ -3,6 +3,7 @@ using System.Data.Common;
 using CavemanTools.Model.Persistence;
 using SqlFu;
 using SqlFu.Builders;
+using SqlFu.Builders.CreateTable;
 
 namespace CavemanTools.Persistence
 {
@@ -10,37 +11,30 @@ namespace CavemanTools.Persistence
     {
         public static string DefaultTableName = "IdempotencyStore";
         public static string DefaultSchema = "";
-        class IdemStore
+
+        public class IdemStore
         {
             public string Hash { get; set; }
         }
-        public class StoreCreator : ICreateStorage
+
+        public static void InitStorage<T>(T factory,TableExistsAction ifExists=TableExistsAction.Ignore) where T : IDbFactory
+            =>new StoreCreator(factory).IfExists(ifExists).Create();
+
+        public class StoreCreator : ATypedStorageCreator<IdemStore>
         {
-          
-            private readonly IDbFactory _db;
 
-            public StoreCreator(IDbFactory db)
+         
+            protected override void Configure(IConfigureTable<IdemStore> cfg)
             {
-                _db = db;
-            }
-
-            public void CreateAndIfExists(Just ifExists)
-            {
-                _db.Do(db =>
-                {
-                    db.CreateTableFrom<IdemStore>(t =>
-                    {
-                        t.TableName(DefaultTableName, DefaultSchema)
+                cfg.TableName(DefaultTableName, DefaultSchema)
                             .Column(ta => ta.Hash, c => c.HasDbType("char").HasSize(32))
                             .PrimaryKey(pk => pk.OnColumns(d => d.Hash))
-                            .IfTableExists(ifExists);
-                    });
-
-                });
+                            .HandleExisting(HandleExistingTable);
             }
 
-            public void Create()
-                => CreateAndIfExists(Just.Ignore);
+            public StoreCreator(IDbFactory db) : base(db)
+            {
+            }
         }
         public static bool IsDuplicateOperation(this DbConnection db, IdempotencyId data)
         {
