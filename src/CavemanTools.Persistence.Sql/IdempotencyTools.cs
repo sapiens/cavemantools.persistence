@@ -9,16 +9,24 @@ namespace CavemanTools.Persistence
 {
     public static class IdempotencyTools
     {
-        public static string DefaultTableName = "IdempotencyStore";
-        public static string DefaultSchema = "";
+        public const string DefaultTableName = "IdempotencyStore";
+        public const string DefaultSchema = "";
 
         public class IdemStore
         {
             public string Hash { get; set; }
         }
 
-        public static void InitStorage<T>(T factory,TableExistsAction ifExists=TableExistsAction.Ignore) where T : IDbFactory
-            =>new StoreCreator(factory).IfExists(ifExists).Create();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="factory"></param>
+        /// <param name="name"></param>
+        /// <param name="schema"></param>
+        /// <param name="ifExists"></param>
+        public static void InitStorage<T>(T factory,string name=DefaultTableName,string schema=DefaultSchema,TableExistsAction ifExists=TableExistsAction.Ignore) where T : IDbFactory
+            =>new StoreCreator(factory).WithTableName(name,schema).IfExists(ifExists).Create();
 
         public class StoreCreator : ATypedStorageCreator<IdemStore>
         {
@@ -26,10 +34,10 @@ namespace CavemanTools.Persistence
          
             protected override void Configure(IConfigureTable<IdemStore> cfg)
             {
-                cfg.TableName(DefaultTableName, DefaultSchema)
-                            .Column(ta => ta.Hash, c => c.HasDbType("char").HasSize(32))
-                            .PrimaryKey(pk => pk.OnColumns(d => d.Hash))
-                            .HandleExisting(HandleExistingTable);
+                cfg
+                .Column(ta => ta.Hash, c => c.HasDbType("char").HasSize(32))
+                .PrimaryKey(pk => pk.OnColumns(d => d.Hash))
+                .HandleExisting(HandleExistingTable);
             }
 
             public StoreCreator(IDbFactory db) : base(db)

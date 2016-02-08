@@ -15,7 +15,7 @@ namespace Tests
 
         public IdempotencyTests()
         {
-          
+          IdempotencyTools.InitStorage(Setup.GetFactory(),"idemtest",ifExists:TableExistsAction.DropIt);
         }
 
         [Fact]

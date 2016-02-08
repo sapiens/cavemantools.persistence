@@ -19,7 +19,9 @@ namespace Tests
             });
         }
 
-        public static DbConnection GetConnection() => SqlFuManager.GetDbFactory().Create();
+        public static IDbFactory GetFactory() => SqlFuManager.GetDbFactory();
+
+        public static DbConnection GetConnection() => GetFactory().Create();
 
 
     }

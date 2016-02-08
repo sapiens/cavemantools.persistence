@@ -105,7 +105,10 @@ namespace CavemanTools.Persistence.UniqueStore
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="factory"></param>
-        public static void InitStorage<T>(T factory, TableExistsAction ifExists = TableExistsAction.Ignore) where T : IDbFactory
-            => new UniqueStorageCreator(factory).IfExists(ifExists).Create();
+        /// <param name="name"></param>
+        /// <param name="schema"></param>
+        /// <param name="ifExists"></param>
+        public static void InitStorage<T>(T factory, string name = UniqueStorageCreator.DefaultTableName, string schema = UniqueStorageCreator.DefaultSchema, TableExistsAction ifExists = TableExistsAction.Ignore) where T : IDbFactory
+            => new UniqueStorageCreator(factory).WithTableName(name,schema).IfExists(ifExists).Create();
     }
 }

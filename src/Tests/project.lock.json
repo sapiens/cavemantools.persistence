@@ -27,7 +27,7 @@
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
-          "SqlFu": "3.0.0-beta0-4"
+          "SqlFu": "3.0.0-beta0"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -175,7 +175,7 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -339,7 +339,7 @@
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-4",
+          "SqlFu": "3.0.0-beta0",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -552,7 +552,7 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -1411,7 +1411,7 @@
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
-          "SqlFu": "3.0.0-beta0-4"
+          "SqlFu": "3.0.0-beta0"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1559,7 +1559,7 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -1713,7 +1713,7 @@
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
-          "SqlFu": "3.0.0-beta0-4"
+          "SqlFu": "3.0.0-beta0"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1861,7 +1861,7 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6"
@@ -2025,7 +2025,7 @@
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-4",
+          "SqlFu": "3.0.0-beta0",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -2477,7 +2477,7 @@
           "runtimes/win7-x86/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -3574,7 +3574,7 @@
         "dependencies": {
           "CavemanTools": "4.0.0-pre-7",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-4",
+          "SqlFu": "3.0.0-beta0",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -4026,7 +4026,7 @@
           "runtimes/win7-x64/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-4": {
+      "SqlFu/3.0.0-beta0-7": {
         "type": "package",
         "dependencies": {
           "CavemanTools": "4.0.0-pre-6",
@@ -5637,16 +5637,16 @@
         "runtimes/win7-x86/native/sni.dll"
       ]
     },
-    "SqlFu/3.0.0-beta0-4": {
+    "SqlFu/3.0.0-beta0-7": {
       "type": "package",
-      "sha512": "kqY2dNHKZgzB7esKo+KDdJkR67kMTD5LtUaQFDpGToMCRCWJFo3fAhovkxnq3nxAH/PfJdzaRM44gx4TTJ3U9w==",
+      "sha512": "T2k44a8zPqdy7fJJE7n3862GgXhOrtVVLikm1ZOM2mNxSoJMjLRK8/BZqFqjQPJZfkpJWOgr1LbaKj8dejMbqA==",
       "files": [
         "lib/dotnet5.4/SqlFu.dll",
         "lib/dotnet5.4/SqlFu.xml",
         "lib/net46/SqlFu.dll",
         "lib/net46/SqlFu.xml",
-        "SqlFu.3.0.0-beta0-4.nupkg",
-        "SqlFu.3.0.0-beta0-4.nupkg.sha512",
+        "SqlFu.3.0.0-beta0-7.nupkg",
+        "SqlFu.3.0.0-beta0-7.nupkg.sha512",
         "SqlFu.nuspec"
       ]
     },
@@ -8384,7 +8384,8 @@
       "xunit >= 2.2.0-beta1-build3239",
       "FluentAssertions >= 4.2.1",
       "xunit.runner.dnx >= 2.1.0-rc1-build204",
-      "CavemanTools.Persistence.Sql "
+      "CavemanTools.Persistence.Sql ",
+      "SqlFu >= 3.0.0-beta0-*"
     ],
     "DNX,Version=v4.6": [
       "fx/System.Runtime >= 4.0.20"
