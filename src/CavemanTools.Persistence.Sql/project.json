@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0-pre",
   "description": "Sql persistence for idempotency and uniques storages",
-  "authors": [ "t" ],
+  "authors": [ "Mihai Mogosanu" ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
 
     "dependencies": {
-        "CavemanTools": "4.0.0-pre-7",
+        "CavemanTools": "4.0.0-pre-*",
         "SqlFu": "3.0.0-beta0-*" 
     },
 
