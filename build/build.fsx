@@ -35,7 +35,7 @@ Target "Pack" ( fun _ ->
 
 Target "Test" (fun _ ->
    runTests clr
-   runTests clrCore    
+  // runTests clrCore    
 )
 
 Target "Push"(fun _ -> push pkgFiles |> ignore)
