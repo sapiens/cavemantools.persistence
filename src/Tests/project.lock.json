@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.6": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -19,12 +19,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
-          "SqlFu": "3.0.0-beta0-11"
+          "CavemanTools": "4.0.0-beta-1",
+          "SqlFu": "3.0.0-beta-1"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -172,10 +172,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10"
+          "CavemanTools": "4.0.0-beta-1"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -302,7 +302,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
@@ -329,13 +329,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-11",
+          "SqlFu": "3.0.0-beta-1",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -548,10 +548,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Data.Common": "4.0.1-beta-23516",
@@ -1383,7 +1383,7 @@
       }
     },
     "DNX,Version=v4.6/win7-x86": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1399,12 +1399,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
-          "SqlFu": "3.0.0-beta0-11"
+          "CavemanTools": "4.0.0-beta-1",
+          "SqlFu": "3.0.0-beta-1"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1552,10 +1552,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10"
+          "CavemanTools": "4.0.0-beta-1"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1682,7 +1682,7 @@
       }
     },
     "DNX,Version=v4.6/win7-x64": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1698,12 +1698,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
-          "SqlFu": "3.0.0-beta0-11"
+          "CavemanTools": "4.0.0-beta-1",
+          "SqlFu": "3.0.0-beta-1"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1851,10 +1851,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10"
+          "CavemanTools": "4.0.0-beta-1"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1981,7 +1981,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
@@ -2008,13 +2008,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-11",
+          "SqlFu": "3.0.0-beta-1",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -2466,10 +2466,10 @@
           "runtimes/win7-x86/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Data.Common": "4.0.1-beta-23516",
@@ -3529,7 +3529,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "CavemanTools/4.0.0-pre0-11": {
+      "CavemanTools/4.0.0-beta-1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
@@ -3556,13 +3556,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+      "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-11",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0-11",
+          "SqlFu": "3.0.0-beta-1",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -4014,10 +4014,10 @@
           "runtimes/win7-x64/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-11": {
+      "SqlFu/3.0.0-beta-1": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre0-10",
+          "CavemanTools": "4.0.0-beta-1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Data.Common": "4.0.1-beta-23516",
@@ -5078,16 +5078,16 @@
     }
   },
   "libraries": {
-    "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
+    "CavemanTools.Persistence.Sql/1.0.0-beta-1": {
       "type": "project",
       "path": "../CavemanTools.Persistence.Sql/project.json"
     },
-    "CavemanTools/4.0.0-pre0-11": {
+    "CavemanTools/4.0.0-beta-1": {
       "type": "package",
-      "sha512": "R61CgK8fi66vpkX/DieIB69pqEUo2wxEVGoVVqyuiZwhcM/hVMkAATRHZi5kfSbMgPab+Ocs3CNCwkjFlLi8ZQ==",
+      "sha512": "471VsOky0f2jDJddbZjutBDonDqd1ljwldgxtT16kJouFz/0+TCujCSGU6HeHntzsjS5Waj2dnH1RGWyTFk7JA==",
       "files": [
-        "CavemanTools.4.0.0-pre0-11.nupkg",
-        "CavemanTools.4.0.0-pre0-11.nupkg.sha512",
+        "CavemanTools.4.0.0-beta-1.nupkg",
+        "CavemanTools.4.0.0-beta-1.nupkg.sha512",
         "CavemanTools.nuspec",
         "lib/dotnet5.4/CavemanTools.dll",
         "lib/dotnet5.4/CavemanTools.xml",
@@ -5625,16 +5625,16 @@
         "runtimes/win7-x86/native/sni.dll"
       ]
     },
-    "SqlFu/3.0.0-beta0-11": {
+    "SqlFu/3.0.0-beta-1": {
       "type": "package",
-      "sha512": "zAMfjmCg2M0UIxl7kj08zNiLLGcncxkwiMwCNr/j1gaJ5FyV8IQbcPqiOIDct2Q0vXK7VvVXeGE30xGqqisKAQ==",
+      "sha512": "S9d99vS2TKUBHwFydeg4yhvDzrNl9WgNEK/OwVtsFmGyZhAkVCK/W0Ut/P/GunAGlhQMW0OPTr9hInV5or88NQ==",
       "files": [
         "lib/dotnet5.4/SqlFu.dll",
         "lib/dotnet5.4/SqlFu.xml",
         "lib/net46/SqlFu.dll",
         "lib/net46/SqlFu.xml",
-        "SqlFu.3.0.0-beta0-11.nupkg",
-        "SqlFu.3.0.0-beta0-11.nupkg.sha512",
+        "SqlFu.3.0.0-beta-1.nupkg",
+        "SqlFu.3.0.0-beta-1.nupkg.sha512",
         "SqlFu.nuspec"
       ]
     },
@@ -8353,7 +8353,7 @@
       "FluentAssertions >= 4.2.1",
       "xunit.runner.dnx >= 2.1.0-rc1-build204",
       "CavemanTools.Persistence.Sql ",
-      "SqlFu >= 3.0.0-beta0-11"
+      "SqlFu >= 3.0.0-beta-1"
     ],
     "DNX,Version=v4.6": [
       "fx/System.Runtime >= 4.0.20"
