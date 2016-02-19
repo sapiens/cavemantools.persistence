@@ -26,11 +26,12 @@ namespace Tests
             _sut = UniqueStore.GetInstance(Setup.GetFactory());
 
             _entityId = Guid.NewGuid();
-            _sut.Add(new UniqueStoreItem(_entityId,Guid.NewGuid()
+            var item = new UniqueStoreItem(_entityId,Guid.NewGuid()
                 ,new UniqueValue("test",scope:Scope)
                 ,new UniqueValue("test-p",OtherAspect,scope:Scope)
 
-                ));
+                );
+            _sut.Add(item);
         }
 
         [Fact]

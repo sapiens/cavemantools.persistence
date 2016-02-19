@@ -3,11 +3,8 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.6": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
-        "dependencies": {
-          "FluentAssertions": "4.2.1"
-        },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
           "mscorlib",
@@ -22,12 +19,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
-          "SqlFu": "3.0.0-beta0"
+          "CavemanTools": "4.0.0-pre0-11",
+          "SqlFu": "3.0.0-beta0-11"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -175,10 +172,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6"
+          "CavemanTools": "4.0.0-pre0-10"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -305,10 +302,9 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
         "dependencies": {
-          "FluentAssertions": "4.2.1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Collections.Concurrent": "4.0.11-beta-23516",
@@ -333,13 +329,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
+          "CavemanTools": "4.0.0-pre0-11",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0",
+          "SqlFu": "3.0.0-beta0-11",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -552,13 +548,13 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6",
+          "CavemanTools": "4.0.0-pre0-10",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
-          "System.Data.Common": "4.0.1-rc2-23728",
+          "System.Data.Common": "4.0.1-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Linq.Expressions": "4.0.11-beta-23516",
           "System.Reflection": "4.1.0-beta-23516",
@@ -573,10 +569,10 @@
           "lib/dotnet5.4/SqlFu.dll": {}
         }
       },
-      "System.Collections/4.0.11-rc2-23728": {
+      "System.Collections/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.21-rc2-23728"
+          "System.Runtime": "4.0.21-beta-23516"
         },
         "compile": {
           "ref/dotnet5.4/System.Collections.dll": {}
@@ -644,16 +640,16 @@
           "ref/dotnet5.1/System.Console.dll": {}
         }
       },
-      "System.Data.Common/4.0.1-rc2-23728": {
+      "System.Data.Common/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.0.0",
+          "System.Collections": "4.0.10",
           "System.Collections.NonGeneric": "4.0.0",
-          "System.Globalization": "4.0.0",
+          "System.Globalization": "4.0.10",
           "System.IO": "4.0.0",
           "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.0",
-          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
           "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.0"
         },
@@ -661,7 +657,7 @@
           "ref/dotnet5.1/System.Data.Common.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/System.Data.Common.dll": {}
+          "lib/dotnet5.4/System.Data.Common.dll": {}
         }
       },
       "System.Data.SqlClient/4.0.0-beta-23516": {
@@ -825,7 +821,7 @@
           "lib/dotnet/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.Linq/4.0.1-rc2-23728": {
+      "System.Linq/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -1387,11 +1383,8 @@
       }
     },
     "DNX,Version=v4.6/win7-x86": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
-        "dependencies": {
-          "FluentAssertions": "4.2.1"
-        },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
           "mscorlib",
@@ -1406,12 +1399,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
-          "SqlFu": "3.0.0-beta0"
+          "CavemanTools": "4.0.0-pre0-11",
+          "SqlFu": "3.0.0-beta0-11"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1559,10 +1552,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6"
+          "CavemanTools": "4.0.0-pre0-10"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1689,11 +1682,8 @@
       }
     },
     "DNX,Version=v4.6/win7-x64": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
-        "dependencies": {
-          "FluentAssertions": "4.2.1"
-        },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
           "mscorlib",
@@ -1708,12 +1698,12 @@
           "lib/net46/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
-          "SqlFu": "3.0.0-beta0"
+          "CavemanTools": "4.0.0-pre0-11",
+          "SqlFu": "3.0.0-beta0-11"
         }
       },
       "FluentAssertions/4.2.1": {
@@ -1861,10 +1851,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6"
+          "CavemanTools": "4.0.0-pre0-10"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1991,10 +1981,9 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
         "dependencies": {
-          "FluentAssertions": "4.2.1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Collections.Concurrent": "4.0.11-beta-23516",
@@ -2019,13 +2008,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
+          "CavemanTools": "4.0.0-pre0-11",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0",
+          "SqlFu": "3.0.0-beta0-11",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -2477,13 +2466,13 @@
           "runtimes/win7-x86/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6",
+          "CavemanTools": "4.0.0-pre0-10",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
-          "System.Data.Common": "4.0.1-rc2-23728",
+          "System.Data.Common": "4.0.1-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Linq.Expressions": "4.0.11-beta-23516",
           "System.Reflection": "4.1.0-beta-23516",
@@ -2498,10 +2487,10 @@
           "lib/dotnet5.4/SqlFu.dll": {}
         }
       },
-      "System.Collections/4.0.11-rc2-23728": {
+      "System.Collections/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.21-rc2-23728"
+          "System.Runtime": "4.0.21-beta-23516"
         },
         "compile": {
           "ref/dotnet5.4/System.Collections.dll": {}
@@ -2584,16 +2573,16 @@
           "ref/dotnet5.1/System.Console.dll": {}
         }
       },
-      "System.Data.Common/4.0.1-rc2-23728": {
+      "System.Data.Common/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.0.0",
+          "System.Collections": "4.0.10",
           "System.Collections.NonGeneric": "4.0.0",
-          "System.Globalization": "4.0.0",
+          "System.Globalization": "4.0.10",
           "System.IO": "4.0.0",
           "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.0",
-          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
           "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.0"
         },
@@ -2601,7 +2590,7 @@
           "ref/dotnet5.1/System.Data.Common.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/System.Data.Common.dll": {}
+          "lib/dotnet5.4/System.Data.Common.dll": {}
         }
       },
       "System.Data.SqlClient/4.0.0-beta-23516": {
@@ -2771,7 +2760,7 @@
           "lib/dotnet/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.Linq/4.0.1-rc2-23728": {
+      "System.Linq/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -3540,10 +3529,9 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "CavemanTools/4.0.0-pre-7": {
+      "CavemanTools/4.0.0-pre0-11": {
         "type": "package",
         "dependencies": {
-          "FluentAssertions": "4.2.1",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Collections.Concurrent": "4.0.11-beta-23516",
@@ -3568,13 +3556,13 @@
           "lib/dotnet5.4/CavemanTools.dll": {}
         }
       },
-      "CavemanTools.Persistence.Sql/1.0.0-pre": {
+      "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre",
+          "CavemanTools": "4.0.0-pre0-11",
           "Microsoft.CSharp": "4.0.1-beta-23516",
-          "SqlFu": "3.0.0-beta0",
+          "SqlFu": "3.0.0-beta0-11",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -4026,13 +4014,13 @@
           "runtimes/win7-x64/native/sni.dll": {}
         }
       },
-      "SqlFu/3.0.0-beta0-7": {
+      "SqlFu/3.0.0-beta0-11": {
         "type": "package",
         "dependencies": {
-          "CavemanTools": "4.0.0-pre-6",
+          "CavemanTools": "4.0.0-pre0-10",
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
-          "System.Data.Common": "4.0.1-rc2-23728",
+          "System.Data.Common": "4.0.1-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Linq.Expressions": "4.0.11-beta-23516",
           "System.Reflection": "4.1.0-beta-23516",
@@ -4047,10 +4035,10 @@
           "lib/dotnet5.4/SqlFu.dll": {}
         }
       },
-      "System.Collections/4.0.11-rc2-23728": {
+      "System.Collections/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.21-rc2-23728"
+          "System.Runtime": "4.0.21-beta-23516"
         },
         "compile": {
           "ref/dotnet5.4/System.Collections.dll": {}
@@ -4133,16 +4121,16 @@
           "ref/dotnet5.1/System.Console.dll": {}
         }
       },
-      "System.Data.Common/4.0.1-rc2-23728": {
+      "System.Data.Common/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.0.0",
+          "System.Collections": "4.0.10",
           "System.Collections.NonGeneric": "4.0.0",
-          "System.Globalization": "4.0.0",
+          "System.Globalization": "4.0.10",
           "System.IO": "4.0.0",
           "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.0",
-          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
           "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.0"
         },
@@ -4150,7 +4138,7 @@
           "ref/dotnet5.1/System.Data.Common.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/System.Data.Common.dll": {}
+          "lib/dotnet5.4/System.Data.Common.dll": {}
         }
       },
       "System.Data.SqlClient/4.0.0-beta-23516": {
@@ -4320,7 +4308,7 @@
           "lib/dotnet/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.Linq/4.0.1-rc2-23728": {
+      "System.Linq/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -5090,16 +5078,16 @@
     }
   },
   "libraries": {
-    "CavemanTools.Persistence.Sql/1.0.0-pre": {
+    "CavemanTools.Persistence.Sql/1.0.0-pre0-1": {
       "type": "project",
       "path": "../CavemanTools.Persistence.Sql/project.json"
     },
-    "CavemanTools/4.0.0-pre-7": {
+    "CavemanTools/4.0.0-pre0-11": {
       "type": "package",
-      "sha512": "zl3ATS0V43SHh2SaOtZ/GHBl9e7zYSLfIHdtITijp/6PyeYDggYpHga80N+i/jgfKQH15XzvhZCMyaA8ENfpZg==",
+      "sha512": "R61CgK8fi66vpkX/DieIB69pqEUo2wxEVGoVVqyuiZwhcM/hVMkAATRHZi5kfSbMgPab+Ocs3CNCwkjFlLi8ZQ==",
       "files": [
-        "CavemanTools.4.0.0-pre-7.nupkg",
-        "CavemanTools.4.0.0-pre-7.nupkg.sha512",
+        "CavemanTools.4.0.0-pre0-11.nupkg",
+        "CavemanTools.4.0.0-pre0-11.nupkg.sha512",
         "CavemanTools.nuspec",
         "lib/dotnet5.4/CavemanTools.dll",
         "lib/dotnet5.4/CavemanTools.xml",
@@ -5211,7 +5199,7 @@
     "Microsoft.CSharp/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "fb+HO3nIjHao9lqsVVM0ne3GM/+1EfRQUoM58cxEOt+5biy/8DQ1nxIahZ9VaJKw7Wgb6XhRhsdwg8DkePEOJA==",
+      "sha512": "z/W5YaTGVQ8WX6TQDW8cCBAe2rBhHOD7NZHxLAnBIMoLWMI/upWDi+dxHYMDDWmGOM7a3di6evem2OzOdaB1fQ==",
       "files": [
         "lib/dotnet5.4/Microsoft.CSharp.dll",
         "lib/MonoAndroid10/_._",
@@ -5637,23 +5625,23 @@
         "runtimes/win7-x86/native/sni.dll"
       ]
     },
-    "SqlFu/3.0.0-beta0-7": {
+    "SqlFu/3.0.0-beta0-11": {
       "type": "package",
-      "sha512": "T2k44a8zPqdy7fJJE7n3862GgXhOrtVVLikm1ZOM2mNxSoJMjLRK8/BZqFqjQPJZfkpJWOgr1LbaKj8dejMbqA==",
+      "sha512": "zAMfjmCg2M0UIxl7kj08zNiLLGcncxkwiMwCNr/j1gaJ5FyV8IQbcPqiOIDct2Q0vXK7VvVXeGE30xGqqisKAQ==",
       "files": [
         "lib/dotnet5.4/SqlFu.dll",
         "lib/dotnet5.4/SqlFu.xml",
         "lib/net46/SqlFu.dll",
         "lib/net46/SqlFu.xml",
-        "SqlFu.3.0.0-beta0-7.nupkg",
-        "SqlFu.3.0.0-beta0-7.nupkg.sha512",
+        "SqlFu.3.0.0-beta0-11.nupkg",
+        "SqlFu.3.0.0-beta0-11.nupkg.sha512",
         "SqlFu.nuspec"
       ]
     },
-    "System.Collections/4.0.11-rc2-23728": {
+    "System.Collections/4.0.11-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "O4Td/7GIfsWtst7BPj0dWX+cwsiGnr7mi23iirmHLjUGE5vOJjtX5R9M1lZOas9iZC7GVarpp4s2EKZxszr8vw==",
+      "sha512": "FSd5zsGfmG2pidC3CVizQPNGTK1Q3A2HEuRqwUPLU/AArjELLC5p4l6XIAlJ9ZBPdbp6V8vFQAxUHzkFfyVkYA==",
       "files": [
         "lib/DNXCore50/System.Collections.dll",
         "lib/MonoAndroid10/_._",
@@ -5707,15 +5695,15 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Collections.dll",
-        "System.Collections.4.0.11-rc2-23728.nupkg",
-        "System.Collections.4.0.11-rc2-23728.nupkg.sha512",
+        "System.Collections.4.0.11-beta-23516.nupkg",
+        "System.Collections.4.0.11-beta-23516.nupkg.sha512",
         "System.Collections.nuspec"
       ]
     },
     "System.Collections.Concurrent/4.0.11-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "e4FscEk9ugPXPKEIQFYBS/i+0KAkKf/IEe26fiOnqk8JVZQuCLO3gJmJ+IiVD1TxJjvVmh+tayQuo2svVzZV7g==",
+      "sha512": "K+n6bC3jL5nRzwm8IM5WHxPScCnrVoPCJjpkBEmoBYY8/3j4RJdqIng/NYcpGcjvP/GIF6tAwZlh54ao2pWOvQ==",
       "files": [
         "lib/dotnet5.4/System.Collections.Concurrent.dll",
         "lib/MonoAndroid10/_._",
@@ -5880,7 +5868,7 @@
     "System.Console/4.0.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "0YTzoNamTU+6qfZEYtMuGjtkJHB1MEDyFsZ5L/x97GkZO3Bw91uwdPh0DkFwQ6E8KaQTgZAecSXoboUHAcdSLA==",
+      "sha512": "tzF4Dbbv+5bcbQ7GHuuKafkaDZThiUiwxqCc1ngewnMWZ5YmIgjQZjs+E1DNhoMVAvkH0tSmLJvsDlx9dFg+Aw==",
       "files": [
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -5909,16 +5897,15 @@
         "System.Console.nuspec"
       ]
     },
-    "System.Data.Common/4.0.1-rc2-23728": {
+    "System.Data.Common/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "8XbiUEwL2JTQbn3OF3Y6g7xiM9Ve/9ykbVh0UDCECiKAeNGtgJbyGZ6d76D+SYPqsqutXapkaar3me127FOVxQ==",
+      "sha512": "fMYiiL3/cXaozWH08y/kB25BZf6eBf5EWxBZnjDECNBRkaJgsa4/0S6543NK11UpsWYYHBUFsX4roSq8GddkpA==",
       "files": [
-        "lib/dotnet5.1/System.Data.Common.dll",
+        "lib/dotnet5.4/System.Data.Common.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
-        "lib/net45/System.Data.Common.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Data.Common.dll",
+        "lib/net46/System.Data.Common.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "ref/dotnet5.1/de/System.Data.Common.xml",
@@ -5934,22 +5921,11 @@
         "ref/dotnet5.1/zh-hant/System.Data.Common.xml",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
-        "ref/net45/System.Data.Common.dll",
-        "ref/portable-net45+win8+wp8+wpa81/de/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/es/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/fr/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/it/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/ja/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/ko/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/ru/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/System.Data.Common.dll",
-        "ref/portable-net45+win8+wp8+wpa81/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/zh-hans/System.Data.Common.xml",
-        "ref/portable-net45+win8+wp8+wpa81/zh-hant/System.Data.Common.xml",
+        "ref/net46/System.Data.Common.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Data.Common.4.0.1-rc2-23728.nupkg",
-        "System.Data.Common.4.0.1-rc2-23728.nupkg.sha512",
+        "System.Data.Common.4.0.1-beta-23516.nupkg",
+        "System.Data.Common.4.0.1-beta-23516.nupkg.sha512",
         "System.Data.Common.nuspec"
       ]
     },
@@ -6159,7 +6135,7 @@
     "System.Diagnostics.TraceSource/4.0.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "OIWB5pvMqOdCraAtiJBhRahrsnP2sNaXbCZNdAadzwiPLzRI7EvLTc7/NlkFDxm3I6YKVGxnJ5aO+YJ/XPC8yw==",
+      "sha512": "gvJNxObthiaV07AKZYjQV69xRBKRR7gTpEVe4qXF4Mta/2zD7sI+Zm//rRCQenLYBuL8nBxVzomtYJ4eT7w8QQ==",
       "files": [
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -6540,21 +6516,17 @@
         "System.IO.FileSystem.Primitives.nuspec"
       ]
     },
-    "System.Linq/4.0.1-rc2-23728": {
+    "System.Linq/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "jiZneQsxtMOHkkWR1w7n6aa8HB6CVQ4/KbHiuO1FiTHXBZhzOp9OkjAMbTmwf/V/S0r33Ei/EuSaKWYRVa+U5w==",
+      "sha512": "AJaoyeAHLpurbTWnmvOhK/QC2sswKJrIA5RlPea+UdfXpHOw3srPNEPpseZDMV/EviVqAwUfFNkc5QxpGZtsLA==",
       "files": [
         "lib/dotnet5.4/System.Linq.dll",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
         "lib/net45/_._",
         "lib/netcore50/System.Linq.dll",
         "lib/win8/_._",
         "lib/wp80/_._",
         "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
         "ref/dotnet5.1/de/System.Linq.xml",
         "ref/dotnet5.1/es/System.Linq.xml",
         "ref/dotnet5.1/fr/System.Linq.xml",
@@ -6566,8 +6538,6 @@
         "ref/dotnet5.1/System.Linq.xml",
         "ref/dotnet5.1/zh-hans/System.Linq.xml",
         "ref/dotnet5.1/zh-hant/System.Linq.xml",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
         "ref/net45/_._",
         "ref/netcore50/de/System.Linq.xml",
         "ref/netcore50/es/System.Linq.xml",
@@ -6583,10 +6553,8 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "System.Linq.4.0.1-rc2-23728.nupkg",
-        "System.Linq.4.0.1-rc2-23728.nupkg.sha512",
+        "System.Linq.4.0.1-beta-23516.nupkg",
+        "System.Linq.4.0.1-beta-23516.nupkg.sha512",
         "System.Linq.nuspec"
       ]
     },
@@ -6952,7 +6920,7 @@
     "System.Reflection/4.1.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "wfrnDfk8p2cqJQY3TTHsJRmf3cE3wa6BacncCn4dO58lVwQNNe9ASdLrLJZlMviAjx8+1fUpj6NX7leIOyaBJA==",
+      "sha512": "CtBdMwGqcohBPV7Pic8unnJlSxN1H3qZGLr4fP0GXXbI00E37ZQL+y5sy7FpHTQ8fsVmV8QbQqf+ngSkP6YTjQ==",
       "files": [
         "lib/DNXCore50/System.Reflection.dll",
         "lib/MonoAndroid10/_._",
@@ -7068,7 +7036,7 @@
     "System.Reflection.Extensions/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "CiaYbkU2dzOSTSB7X/xLvlae3rop8xz62XjflUSnyCaRPB5XaQR4JasHW07/lRKJowt67Km7K1LMpYEmoRku8w==",
+      "sha512": "Ph0ELqqqz218bGEtnfQ1xegANVQ3v0S/hU12AHpb4HEw8SESssbNCKWEVjeI3y2xDYaVx1aVjM4hZ1QXa4IonQ==",
       "files": [
         "lib/DNXCore50/System.Reflection.Extensions.dll",
         "lib/net45/_._",
@@ -7532,7 +7500,7 @@
     "System.Security.Cryptography.Algorithms/4.0.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "yvMpzC6Cd/UBHB3LU4z4jorW8nuitQfG171R8INxoUtNTZPBUmVhW4MW4adQYmwZ9IJ5C5rxnXKNfsvF5g9eog==",
+      "sha512": "h0t6XvR47THFihonJfk2aC3m2YQ94hzF0bFBE9Zgs4td+G+NgIuRmIdGQMFKv3sH7jX5ItOLq/K7uX9M6dvlgQ==",
       "files": [
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -7586,7 +7554,7 @@
     "System.Security.Cryptography.Primitives/4.0.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "YEHmq6x6u2grEuZFAX9au+6uY8SCIkA6lu4wbrt2C71RFQKWEyO5G9+pk1v0QcNPqay/38aSm9v/BoTFNQii1Q==",
+      "sha512": "ztiLIQf2hl0ljLzaUeCx5tk+TU8TrHwrEatuKgSl2KoZXxeOCeXnB+oE07xQO7RnnMlPLtX7/ucHQtteh9du7A==",
       "files": [
         "lib/dotnet5.4/System.Security.Cryptography.Primitives.dll",
         "lib/MonoAndroid10/_._",
@@ -7697,7 +7665,7 @@
     "System.Text.Encoding/4.0.11-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "gk4da/Y3VReZpIeQ3UDTCknbkO/FuYKOJtP+5+Vtc07mTcPHvhgbZLXEGTTneP6yWPDWTTh20nZZMF/19YsRtA==",
+      "sha512": "OnM2cqPXeOKF8cwgIAygYeCSKsJL7gjBDi3tI8lEaJSdnt4nM3/k4i1+p73oXn8a8tEcFRNvrvNuqsdqxYixXQ==",
       "files": [
         "lib/DNXCore50/System.Text.Encoding.dll",
         "lib/MonoAndroid10/_._",
@@ -7822,7 +7790,7 @@
     "System.Text.RegularExpressions/4.0.11-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "Iz3942FXA47VxsuJTBq4aA/gevsbdMhyUnQD6Y0aHt57oP6KAwZLaxVtrRzB03yxh6oGBlvQfxBlsXWnLLj4gg==",
+      "sha512": "ZtarWBvDF7R6pRqo1jxo+uV46Rzxht8rRTe+qSHrr6SLLiZRL4RMncU+mDEn81wF+WL+v81ug20lnssHNHlV+Q==",
       "files": [
         "lib/dotnet5.4/System.Text.RegularExpressions.dll",
         "lib/MonoAndroid10/_._",
@@ -8385,7 +8353,7 @@
       "FluentAssertions >= 4.2.1",
       "xunit.runner.dnx >= 2.1.0-rc1-build204",
       "CavemanTools.Persistence.Sql ",
-      "SqlFu >= 3.0.0-beta0-*"
+      "SqlFu >= 3.0.0-beta0-11"
     ],
     "DNX,Version=v4.6": [
       "fx/System.Runtime >= 4.0.20"

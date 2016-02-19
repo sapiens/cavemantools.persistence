@@ -29,7 +29,7 @@ namespace CavemanTools.Persistence.UniqueStore
 
         public void Add(UniqueStoreItem item)
             =>
-                _db.Do(db =>
+                _db.HandleTransientErrors(db =>
                 {
                     using (var t = db.BeginTransaction())
                     {
@@ -56,7 +56,7 @@ namespace CavemanTools.Persistence.UniqueStore
 
         public void Delete(Guid entityId)
         {
-            _db.Do(db =>
+            _db.HandleTransientErrors(db =>
             {
                 db.DeleteFrom<UniqueStoreRow>(d => d.EntityId == entityId);
             });
@@ -64,19 +64,19 @@ namespace CavemanTools.Persistence.UniqueStore
 
         public void Delete(string bucketId)
         {
-            _db.Do(db =>
+            _db.HandleTransientErrors(db =>
             {
                 db.DeleteFrom<UniqueStoreRow>(d => d.Bucket == UniqueStoreRow.Pack(bucketId));
             });
         }
 
-        public void Delete(UniqueStoreDeleteItem item) => _db.Do(db =>
+        public void Delete(UniqueStoreDeleteItem item) => _db.HandleTransientErrors(db =>
         {
             db.DeleteFrom<UniqueStoreRow>(
                 d => d.EntityId == item.EntityId && d.Aspect == UniqueStoreRow.Pack(item.Aspect));
         });
 
-        public void Update(UniqueStoreUpdateItem item) => _db.Do(db =>
+        public void Update(UniqueStoreUpdateItem item) => _db.HandleTransientErrors(db =>
         {
             using (var t = db.BeginTransaction())
             {
