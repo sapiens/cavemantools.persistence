@@ -1,7 +1,7 @@
 using SqlFu;
 using SqlFu.Builders.CreateTable;
 
-namespace CavemanTools.Persistence.UniqueStore
+namespace CavemanTools.Persistence.Sql.UniqueStore
 {
     public class UniqueStorageCreator : ATypedStorageCreator<UniqueStoreRow>
     {

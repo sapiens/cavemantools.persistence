@@ -1,6 +1,6 @@
 using System;
 
-namespace CavemanTools.Persistence.UniqueStore
+namespace CavemanTools.Persistence.Sql.UniqueStore
 {
     public class UniqueStoreRow
     {

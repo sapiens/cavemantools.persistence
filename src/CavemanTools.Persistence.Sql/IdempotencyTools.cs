@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Data.Common;
+using System.Threading;
+using System.Threading.Tasks;
 using CavemanTools.Model.Persistence;
 using SqlFu;
 using SqlFu.Builders;
 using SqlFu.Builders.CreateTable;
 
-namespace CavemanTools.Persistence
+namespace CavemanTools.Persistence.Sql
 {
     public static class IdempotencyTools
     {
@@ -50,6 +52,20 @@ namespace CavemanTools.Persistence
             try
             {
                 db.Insert(new IdemStore() {Hash = data.GetStorableHash()});
+            }
+            catch (DbException ex)
+            {
+                if (db.IsUniqueViolation(ex)) return true;
+                throw;
+            }
+            return false;
+        }
+        public static async Task<bool> IsDuplicateOperationAsync(this DbConnection db, IdempotencyId data,CancellationToken cancel)
+        {
+            data.MustNotBeNull();
+            try
+            {
+                await db.InsertAsync(new IdemStore() {Hash = data.GetStorableHash()},cancel);
             }
             catch (DbException ex)
             {

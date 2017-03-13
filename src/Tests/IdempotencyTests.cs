@@ -2,6 +2,7 @@
 using System.Data.Common;
 using CavemanTools.Model.Persistence;
 using CavemanTools.Persistence;
+using CavemanTools.Persistence.Sql;
 using Xunit;
 using FluentAssertions;
 using SqlFu;

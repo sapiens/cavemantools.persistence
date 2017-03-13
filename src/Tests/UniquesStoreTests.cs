@@ -3,9 +3,12 @@ using System;
 using FluentAssertions;
 using Xunit;
 using System.Data.Common;
+using System.Threading;
+using System.Threading.Tasks;
 using CavemanTools.Model.Persistence.UniqueStore;
 using CavemanTools.Persistence;
-using CavemanTools.Persistence.UniqueStore;
+using CavemanTools.Persistence.Sql;
+using CavemanTools.Persistence.Sql.UniqueStore;
 using SqlFu;
 using SqlFu.Builders;
 
@@ -15,7 +18,7 @@ namespace Tests
     {
         private const string Scope = "user";
         private const string OtherAspect = "shortname";
-        private IStoreUniqueValues _sut;
+        private IStoreUniqueValuesAsync _sut;
         private Guid _entityId;
 
 
@@ -31,72 +34,73 @@ namespace Tests
                 ,new UniqueValue("test-p",OtherAspect,scope:Scope)
 
                 );
-            _sut.Add(item);
+            _sut.AddAsync(item,CancellationToken.None).Wait();
         }
 
         [Fact]
         public void inserting_one_of_the_existing_values_in_scope_throws()
         {
-            _sut.Invoking(d=>d.Add(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid()
+            _sut.Invoking(d=> d.AddAsync(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid()
                , new UniqueValue("test", scope: Scope)
                , new UniqueValue("test-p", OtherAspect, scope: Scope)
 
-               ))).ShouldThrow<UniqueStoreDuplicateException>();
+               ),CancellationToken.None).Wait()).ShouldThrow<UniqueStoreDuplicateException>();
 
-            _sut.Invoking(d=>d.Add(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),
+            _sut.Invoking(d=>d.AddAsync(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),
                 new UniqueValue("test",scope:Scope)
-                ))).ShouldThrow<UniqueStoreDuplicateException>();
+                ),CancellationToken.None).Wait()).ShouldThrow<UniqueStoreDuplicateException>();
 
-            _sut.Invoking(d=>d.Add(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),
+            _sut.Invoking(d=>d.AddAsync(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),
                 new UniqueValue("test-p",OtherAspect,scope:Scope)
-                ))).ShouldThrow<UniqueStoreDuplicateException>();
+                ),CancellationToken.None).Wait()).ShouldThrow<UniqueStoreDuplicateException>();
         }
 
         [Fact]
         public void inserting_same_value_in_different_scope_doesnt_throw()
         {
-            _sut.Invoking(d => d.Add(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid(),
+            _sut.Invoking(async d => await d.AddAsync(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid(),
                new UniqueValue("test", scope: OtherAspect)
-               ))).ShouldNotThrow<UniqueStoreDuplicateException>();
+               ),CancellationToken.None)).ShouldNotThrow<UniqueStoreDuplicateException>();
         }
 
         [Fact]
         public void inserting_same_values_scope_in_different_bucket_doesnt_throw()
         {
-            _sut.Invoking(d=>d.Add(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid()
+            _sut.Invoking(async d=>await d.AddAsync(new UniqueStoreItem(Guid.NewGuid(), Guid.NewGuid()
               , new UniqueValue("test", scope: Scope)
               , new UniqueValue("test-p", OtherAspect, scope: Scope)
 
-              ) {Bucket = "bla"})).ShouldNotThrow<UniqueStoreDuplicateException>();
+              ) {Bucket = "bla"},CancellationToken.None)).ShouldNotThrow<UniqueStoreDuplicateException>();
         }
 
         [Fact]
-        public void updating_to_an_existing_value_throws()
+        public async Task updating_to_an_existing_value_throws()
         {
-            _sut.Add(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),new UniqueValue("bla",scope:Scope)));
+            await _sut.AddAsync(new UniqueStoreItem(Guid.NewGuid(),Guid.NewGuid(),new UniqueValue("bla",scope:Scope)),CancellationToken.None);
 
-            _sut.Invoking(d => d.Update(
+            _sut.Invoking (d =>  d.UpdateAsync(
                 new UniqueStoreUpdateItem(_entityId,Guid.NewGuid(),
                 new UniqueValueChange("bla")
-                )))
+                ),CancellationToken.None).Wait())
                 .ShouldThrow<UniqueStoreDuplicateException>();
 
-            _sut.Invoking(d => d.Update(
+            _sut.Invoking(d => d.UpdateAsync(
                 new UniqueStoreUpdateItem(_entityId,Guid.NewGuid(),
                 new UniqueValueChange("bla2")
-                )))
+                ),CancellationToken.None).Wait())
                 .ShouldNotThrow<UniqueStoreDuplicateException>();
         }
 
         [Fact]
-        public void delete_from_store()
+        public async void delete_from_store()
         {
-            _sut.Delete(_entityId);
-            _sut.Invoking(d=>d.Add(new UniqueStoreItem(_entityId, Guid.NewGuid()
+            
+            await _sut.DeleteAsync(_entityId,CancellationToken.None);
+            _sut.Invoking(async d=>await d.AddAsync(new UniqueStoreItem(_entityId, Guid.NewGuid()
                , new UniqueValue("test", scope: Scope)
                , new UniqueValue("test-p", OtherAspect, scope: Scope)
 
-               ))).ShouldNotThrow<UniqueStoreDuplicateException>();
+               ),CancellationToken.None)).ShouldNotThrow<UniqueStoreDuplicateException>();
         }
     }
 } 

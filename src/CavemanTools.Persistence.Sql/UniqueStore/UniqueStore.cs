@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Data.Common;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using CavemanTools.Model.Persistence.UniqueStore;
 using SqlFu;
 using SqlFu.Builders;
 
-namespace CavemanTools.Persistence.UniqueStore
+namespace CavemanTools.Persistence.Sql.UniqueStore
 {
-    public class UniqueStore:IStoreUniqueValues
+    public class UniqueStore:IStoreUniqueValuesAsync
     {
         private readonly IDbFactory _db;
         public const string Table = "UniqueStore";
@@ -19,68 +21,54 @@ namespace CavemanTools.Persistence.UniqueStore
         /// <typeparam name="T"></typeparam>
         /// <param name="factory"></param>
         /// <returns></returns>
-        public static IStoreUniqueValues GetInstance<T>(T factory) where T : IDbFactory
+        public static IStoreUniqueValuesAsync GetInstance<T>(T factory) where T : IDbFactory
         => new UniqueStore(factory);
 
         protected UniqueStore(IDbFactory db)
         {
-            _db = db;
+            _db = db; 
         }
 
-        public void Add(UniqueStoreItem item)
-            =>
-                _db.HandleTransientErrors(db =>
-                {
-                    using (var t = db.BeginTransaction())
-                    {
-                        if (db.IsDuplicateOperation(item.ToIdempotencyId())) return;
-
-                        try
-                        {
-
-                            item.Uniques
-                            .Select(d =>new UniqueStoreRow(item.EntityId,d.Scope,d.Aspect,d.Value,item.Bucket))
-                            .ForEach(row=> db.Insert(row));
-
-                            t.Commit();
-                        }
-                        catch (DbException ex) when (db.IsUniqueViolation(ex))
-                        {
-                            throw new UniqueStoreDuplicateException(ex.Message);                            
-                        }
-                    }
-                });
-
-
-
-
-        public void Delete(Guid entityId)
+        public async Task AddAsync(UniqueStoreItem item,CancellationToken cancel) => 
+        await _db.RetryOnTransientErrorAsync(CancellationToken.None, async (q) =>
         {
-            _db.HandleTransientErrors(db =>
-            {
-                db.DeleteFrom<UniqueStoreRow>(d => d.EntityId == entityId);
-            });
-        }
-
-        public void Delete(string bucketId)
-        {
-            _db.HandleTransientErrors(db =>
-            {
-                db.DeleteFrom<UniqueStoreRow>(d => d.Bucket == UniqueStoreRow.Pack(bucketId));
-            });
-        }
-
-        public void Delete(UniqueStoreDeleteItem item) => _db.HandleTransientErrors(db =>
-        {
-            db.DeleteFrom<UniqueStoreRow>(
-                d => d.EntityId == item.EntityId && d.Aspect == UniqueStoreRow.Pack(item.Aspect));
-        });
-
-        public void Update(UniqueStoreUpdateItem item) => _db.HandleTransientErrors(db =>
-        {
+            var db = q.Connection;
             using (var t = db.BeginTransaction())
             {
-                if (db.IsDuplicateOperation(item.ToIdempotencyId())) return;
+                if (await db.IsDuplicateOperationAsync(item.ToIdempotencyId(), q.Cancel)) return;
+
+                try
+                {
+                    item.Uniques
+                        .Select(d => new UniqueStoreRow(item.EntityId, d.Scope, d.Aspect, d.Value, item.Bucket))
+                        .ForEach(row => db.Insert(row));
+
+                    t.Commit();
+                }
+                catch (DbException ex) when (db.IsUniqueViolation(ex))
+                {
+                    throw new UniqueStoreDuplicateException(ex.Message);
+                }
+            }
+        });
+
+
+        public Task DeleteAsync(Guid entityId,CancellationToken cancel) => 
+             _db.RetryOnTransientErrorAsync(cancel,q => q.Connection.DeleteFromAsync<UniqueStoreRow>(q.Cancel,d => d.EntityId == entityId));
+
+        public Task DeleteAsync(string bucketId,CancellationToken cancel)
+        => _db.RetryOnTransientErrorAsync(cancel, q => q.Connection.DeleteFromAsync<UniqueStoreRow>(q.Cancel, d => d.Bucket == UniqueStoreRow.Pack(bucketId)));
+        
+        public Task DeleteAsync(UniqueStoreDeleteItem item,CancellationToken cancel)
+            => _db.RetryOnTransientErrorAsync(cancel, q => q.Connection.DeleteFromAsync<UniqueStoreRow>(q.Cancel, d => d.EntityId == item.EntityId && d.Aspect == UniqueStoreRow.Pack(item.Aspect)));            
+
+        public Task UpdateAsync(UniqueStoreUpdateItem item,CancellationToken cancel) 
+            => _db.RetryOnTransientErrorAsync(cancel,async q =>
+            {
+                var db = q.Connection;
+            using (var t = db.BeginTransaction())
+            {
+                if (await db.IsDuplicateOperationAsync(item.ToIdempotencyId(),q.Cancel)) return;
 
                 try
                 {
