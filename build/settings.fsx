@@ -3,13 +3,12 @@ open Fake
 
 let projName="CavemanTools.Persistence.Sql"
 let projDir= "..\src" @@ projName
-let testDir="..\src" @@ "Tests"
+let testDir="..\src" @@ "Tests\Tests.csproj"
 
-let testOnCore=false
 let additionalPack=[]
+//let additionalPack=[|".SqlServer";".Sqlite"|]
 
-let localNugetRepo="E:/Libs/nuget"
-let nugetExeDir="tools"
+
 
 
 
