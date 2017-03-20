@@ -29,8 +29,8 @@ namespace CavemanTools.Persistence.Sql.UniqueStore
             _db = db; 
         }
 
-        public async Task AddAsync(UniqueStoreItem item,CancellationToken cancel) => 
-        await _db.RetryOnTransientErrorAsync(CancellationToken.None, async (q) =>
+        public  Task AddAsync(UniqueStoreItem item,CancellationToken cancel) => 
+         _db.RetryOnTransientErrorAsync(cancel, async (q) =>
         {
             var db = q.Connection;
             using (var t = db.BeginTransaction())
