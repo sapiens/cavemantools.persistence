@@ -17,6 +17,7 @@ namespace CavemanTools.Persistence.Sql
         public class IdemStore
         {
             public string Hash { get; set; }
+            public DateTime Date { get; set; }  =DateTime.UtcNow;
         }
 
         /// <summary>
