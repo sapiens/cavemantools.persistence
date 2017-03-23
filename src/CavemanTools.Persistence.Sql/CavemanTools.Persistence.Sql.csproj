@@ -16,7 +16,7 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <Version>1.0.0-beta4-1</Version>
+    <Version>1.0.0-beta4-2</Version>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CavemanTools" Version="4.7.2" />
+    <PackageReference Include="CavemanTools" Version="4.9.0" />
     <PackageReference Include="SqlFu" Version="3.3.5" />
   </ItemGroup>
 

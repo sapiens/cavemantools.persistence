@@ -38,6 +38,7 @@ namespace Tests
 
         public void Dispose()
         {
+            _db.DropTable("idemtest");
             _db.Dispose();
         }
     }
