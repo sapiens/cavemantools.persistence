@@ -16,6 +16,7 @@ namespace CavemanTools.Persistence.Sql
 
         public class IdemStore
         {
+
             public string Hash { get; set; }
             public DateTime Date { get; set; }  =DateTime.UtcNow;
         }
@@ -28,8 +29,12 @@ namespace CavemanTools.Persistence.Sql
         /// <param name="name"></param>
         /// <param name="schema"></param>
         /// <param name="ifExists"></param>
-        public static void InitStorage<T>(T factory,string name=DefaultTableName,string schema=DefaultSchema,TableExistsAction ifExists=TableExistsAction.Ignore) where T : IDbFactory
-            =>new StoreCreator(factory).WithTableName(name,schema).IfExists(ifExists).Create();
+        public static void InitStorage<T>(T factory,string name=DefaultTableName,string schema=DefaultSchema,TableExistsAction ifExists=TableExistsAction.Ignore) where T : IDbFactory        
+        {
+            new StoreCreator(factory).WithTableName(name, schema).IfExists(ifExists).Create();
+            //SqlFuManager.Config.ConfigureTableForPoco<IdemStore>(
+            //    c => c.Table = new SqlFu.Configuration.TableName(name, schema));
+        }
 
         public class StoreCreator : ATypedStorageCreator<IdemStore>
         {
@@ -66,7 +71,7 @@ namespace CavemanTools.Persistence.Sql
             data.MustNotBeNull();
             try
             {
-                await db.InsertAsync(new IdemStore() {Hash = data.GetStorableHash()},cancel);
+                await db.InsertAsync(new IdemStore() {Hash = data.GetStorableHash()},cancel).ConfigureFalse();
             }
             catch (DbException ex)
             {

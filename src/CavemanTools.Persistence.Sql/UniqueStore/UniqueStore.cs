@@ -97,6 +97,10 @@ namespace CavemanTools.Persistence.Sql.UniqueStore
         /// <param name="schema"></param>
         /// <param name="ifExists"></param>
         public static void InitStorage<T>(T factory, string name = UniqueStorageCreator.DefaultTableName, string schema = UniqueStorageCreator.DefaultSchema, TableExistsAction ifExists = TableExistsAction.Ignore) where T : IDbFactory
-            => new UniqueStorageCreator(factory).WithTableName(name,schema).IfExists(ifExists).Create();
+        {
+            new UniqueStorageCreator(factory).WithTableName(name, schema).IfExists(ifExists).Create();
+            //SqlFuManager.Config.ConfigureTableForPoco<UniqueStoreRow>(
+            //   c => c.Table = new SqlFu.Configuration.TableName(name, schema));
+        }
     }
 }
