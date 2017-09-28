@@ -1,12 +1,10 @@
-﻿using System;
+﻿using CavemanTools.Model.Persistence;
+using SqlFu;
+using System;
 using System.Data.Common;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using CavemanTools.Model.Persistence;
-using SqlFu;
-using SqlFu.Builders;
-using SqlFu.Builders.CreateTable;
+using SqlFu.Configuration;
 
 namespace CavemanTools.Persistence.Sql
 {
@@ -19,12 +17,18 @@ namespace CavemanTools.Persistence.Sql
         {
 
             public string Hash { get; set; }
-            public DateTime Date { get; set; }  =DateTime.UtcNow;
+            public DateTime UtcTimestamp { get; set; }  =DateTime.UtcNow;
         }
 
-        public static void InitStorage(string schema = null)
+        public static void CreateSqliteStorage(DbConnection db)
+            => InitStorage(db, CreateSqlite());
+        public static void CreateMSSqlStorage(DbConnection db,string schema)
+            => InitStorage(db, CreateMSSql(new TableName(DefaultTableName,schema??DefaultSchema)));
+
+
+        private static void InitStorage(DbConnection db,string sql,string schema = null)
         {
-            
+            db.AddDbObjectOrIgnore(sql);            
         }
 
         ///// <summary>
@@ -87,21 +91,12 @@ namespace CavemanTools.Persistence.Sql
             return false;
         }
 
-        static void CreateSqlite()
-        {
-            
-        }
-
-        static void CreateMSSql()
-        {
-            
-        }
-    }
-
-    public class StorageType
-    {
+        static string CreateSqlite() => $"create table if not exists {DefaultTableName} (Hash text primary key not null, UtcTimestamp text not null)";
         
-    }
 
+        static string CreateMSSql(TableName name)
+        => $"create table  {name} (Hash char(32) primary key not null, UtcTimestamp date not null)";
+    }
+    
   
 }

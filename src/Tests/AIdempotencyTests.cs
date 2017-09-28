@@ -1,32 +1,29 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using System.Data.Common;
-using System.Data.SqlClient;
-using CavemanTools;
-using CavemanTools.Logging;
 using CavemanTools.Model.Persistence;
-using CavemanTools.Persistence;
 using CavemanTools.Persistence.Sql;
 using Xunit;
-using FluentAssertions;
-using SqlFu;
-using SqlFu.Builders;
-using SqlFu.Providers.SqlServer;
-using SqlFu.Configuration;
-using Xunit.Abstractions;
 
 namespace Tests
 {
-    public class IdempotencyTests:IDisposable
+    public abstract class AIdempotencyTests:IDisposable
     {
-        private DbConnection _db = Setup.GetConnection();
+        protected DbConnection _db;
      
 
-        public IdempotencyTests()
+        public AIdempotencyTests()
         {
-          
-            IdempotencyTools.InitStorage(Setup.GetFactory(),ifExists:TableExistsAction.DropIt);
-     
+            _db = GetConnection();
+            Init();
         }
+
+        protected virtual void Init()
+        {
+            
+        }
+
+        protected abstract DbConnection GetConnection();
 
         [Fact]
         public void insert_same_operation_returns_true()
@@ -45,10 +42,15 @@ namespace Tests
             _db.IsDuplicateOperation(new IdempotencyId(idem.OperationId, "mymodel1")).Should().BeFalse();
         }
 
-        public void Dispose()
-        {     
+        protected virtual void DisposeOther()
+        {
             
+        }
+        public void Dispose()
+        {
+            DisposeOther();
             _db.Dispose();
+           
     
         }
     }

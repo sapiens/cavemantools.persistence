@@ -24,4 +24,8 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CavemanTools.Persistence.Sql\CavemanTools.Persistence.Sql.csproj" />
+  </ItemGroup>
+
 </Project>
