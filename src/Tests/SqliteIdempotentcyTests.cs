@@ -29,7 +29,7 @@ namespace Tests
 
         protected override void Init()
         {
-            IdempotencyTools.CreateSqliteStorage(_db);
+            IdempotencyTools.CreateStorage(_db);
         }
 
         protected override void DisposeOther()
@@ -57,7 +57,7 @@ namespace Tests
 
         protected override void Init()
         {
-            IdempotencyTools.CreateMSSqlStorage(_db);
+            IdempotencyTools.CreateStorage(_db);
         }
 
         protected override void DisposeOther()

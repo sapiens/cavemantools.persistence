@@ -17,7 +17,7 @@
 
 //namespace Tests
 //{
-//    public class UniquesStoreTests:IDisposable
+//    public class UniquesStoreTests : IDisposable
 //    {
 //        private const string Scope = "user";
 //        private const string OtherAspect = "shortname";
@@ -33,7 +33,7 @@
 //            _sut = UniqueStore.GetInstance(Setup.GetFactory());
 
 //            _entityId = Guid.NewGuid();
-        
+
 //        }
 
 //        private Task Insert()
@@ -42,7 +42,7 @@
 //                , new UniqueValue("test", scope: Scope)
 //                , new UniqueValue("test-p", OtherAspect, scope: Scope)
 //            );
-//           return _sut.AddAsync(item, CancellationToken.None);
+//            return _sut.AddAsync(item, CancellationToken.None);
 //        }
 
 //        public void Dispose()
