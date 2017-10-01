@@ -208,3 +208,4 @@ $RECYCLE.BIN/
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 src/.vs/config/applicationhost.config
+src/.vs/CavemanTools.Persistence.Sql/v15/sqlite3/storage.ide
