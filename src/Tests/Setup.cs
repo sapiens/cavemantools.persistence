@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
 using CavemanTools.Logging;
 using CavemanTools.Persistence.Sql;
 using SqlFu;
 using SqlFu.Configuration;
-using SqlFu.Executors;
 using SqlFu.Providers;
-using SqlFu.Providers.SqlServer;
 using Xunit;
 
 [assembly: CollectionBehavior(DisableTestParallelization = true, MaxParallelThreads = 1)]
